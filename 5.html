@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <canvas style="border:1px red solid"></canvas>
+  <script>
+    var canvas = document.querySelector('canvas');
+    var context = canvas.getContext('2d');
+context.font = '16px STHeiti, SimHei';
+// 圆球的水平位置和半径
+var x = 30, radius = 30;
+// 清除方法
+var clear = function () {
+// 清除画布
+context.clearRect(0, 0, 250, 167);
+context.fillText('清除', 20, 30);
+setTimeout(draw, 500);
+};
+// 绘制球方法
+var draw = function () {
+x += 10;
+console.log(x)
+if (x > 220) {
+x = 30;
+}
+// 清除提示文字
+context.clearRect(0, 0, 250, 167);
+// 新的文字提示，以及圆绘制
+context.fillText('绘制', 20, 30);
+context.beginPath();
+/* context.arc(x, 84, radius, 0, Math.PI * 2); */
+context.moveTo(5,10)
+context.lineTo(30,x)
+context.fillStyle = '#039';
+context.fill();
+// 清除
+setTimeout(clear, 500);
+};
+// 初始触发
+draw();
+    console.log(canvas)
+  </script>
+</body>
+
+</html>

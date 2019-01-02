@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <canvas style="border:1px red solid"></canvas>
+    <script>
+var canvas = document.querySelector('canvas');
+canvas.width=640;
+canvas.height=768
+var context = canvas.getContext('2d');
+var img = new Image();
+img.onload = function () {
+context.drawImage(img, 0, 0, 640,768);
+// 中间开个方形的洞
+context.clearRect(50, 50, 100, 66);
+};
+img.src = '1.jpg';
+console.log(canvas)
+    </script>
+</body>
+</html>

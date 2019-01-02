@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>draw curve</title>
+</head>
+
+<body>
+  <canvas id="canvas" width="800" height="800"></canvas>
+  <script>
+    var canvas = document.getElementById('canvas');
+    var ctx = canvas.getContext('2d');
+
+    ctx.lineWidth = 2;
+    ctx.strokeStyle = '#000';
+    ctx.beginPath();
+
+    drawCurvePath(
+      ctx,
+      [100, 100],
+      [200, 300],
+      0.4
+    );
+
+    ctx.stroke();
+function drawCurvePath( ctx, start, end, curveness ) {
+// 计算中间控制点
+var cp = [
+( start[ 0 ] + end[ 0 ] ) / 2 - ( start[ 1 ] - end[ 1 ] ) * curveness,
+( start[ 1 ] + end[ 1 ] ) / 2 - ( end[ 0 ] - start[ 0 ] ) * curveness
+];
+ctx.moveTo( start[ 0 ], start[ 1 ] );
+ctx.quadraticCurveTo(
+cp[ 0 ], cp[ 1 ],
+end[ 0 ], end[ 1 ]
+);
+}
+
+var canvas = document.querySelector('canvas');
+var context = canvas.getContext('2d');
+// 打印出context对象属性名或方法名
+console.dir(context);
+
+  </script>
+</body>
+
+</html>
+
+
+

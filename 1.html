@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="canvas" style="border: 1px red solid;display: block;margin: 0 500px"></canvas>
+</body>
+<script>
+    window.onload = function () {
+        var canvas = document.getElementById("canvas")
+        if (canvas.getContext("2d")) {
+            alert("支持canvas")
+            canvas.width = 1024
+            canvas.height = 768
+            var context = canvas.getContext("2d")
+            
+            context.moveTo(100, 100)
+            context.lineTo(700, 700)
+            context.lineTo(100,700)
+            context.lineTo(100,100)
+            context.lineWidth=20
+            context.strokeStyle="blue"
+            context.stroke()
+        } else {
+            alert("不支持canvas")
+        }
+        a=[1,2,3]
+    }
+</script>
+
+</html>
